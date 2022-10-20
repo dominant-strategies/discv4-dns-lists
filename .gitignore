@@ -44,3 +44,8 @@ network.env
 nodelogs
 
 quai-devp2p
+ethkey
+mynode.*
+keypass.txt
+
+.env

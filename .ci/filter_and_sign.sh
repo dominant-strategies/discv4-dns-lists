@@ -1,41 +1,37 @@
 #!/bin/bash
 
 set -e
+chains=("30303 prime" "30304 cyprus" "30305 paxos" "30306 hyrda" "30307 cyprus1" "30308 cyprus2" "30309 cyprus3" "30310 paxos1" "30311 paxos2" "30312 paxos3" "30313 hydra1" "30314 hyrda2" "30315 hyrda3")
+networks=(mainnet ropsten)
 
-proto_groups=(all les snap)
-
-for network in "$@"; do
-
+for chain in "${chains[@]}"; do
     echo "Filter: $network"
-   
-    mkdir -p "all.${network}.${ETH_DNS_DISCV4_PARENT_DOMAIN}"
-    devp2p nodeset filter all.json -eth-network "$network" >"all.${network}.${ETH_DNS_DISCV4_PARENT_DOMAIN}/nodes.json"
+    set -- $chain
+    echo $1 $2
 
-    mkdir -p "les.${network}.${ETH_DNS_DISCV4_PARENT_DOMAIN}"
-    devp2p nodeset filter all.json -les-server -eth-network "$network" >"les.${network}.${ETH_DNS_DISCV4_PARENT_DOMAIN}/nodes.json"
+    for network in "${networks[@]}"; do
+        echo "Sign: $network"
 
-    mkdir -p "snap.${network}.${ETH_DNS_DISCV4_PARENT_DOMAIN}"
-    devp2p nodeset filter all.json -snap -eth-network "$network" >"snap.${network}.${ETH_DNS_DISCV4_PARENT_DOMAIN}/nodes.json"
+        mkdir -p "${network}/$2.${network}.${QUAI_DNS_DISCV4_PARENT_DOMAIN}"
+        ./quai-devp2p nodeset filter all-nodes/all-$2.json -quai-network ${network} > "${network}/$2.${network}.${QUAI_DNS_DISCV4_PARENT_DOMAIN}/nodes.json"
 
-    echo "Sign: $network"
-
-    for proto in "${proto_groups[@]}"; do
-        echo -n "Sign: ${proto}.${network}.${ETH_DNS_DISCV4_PARENT_DOMAIN}"
+        echo -n "Sign: $2.${network}.${QUAI_DNS_DISCV4_PARENT_DOMAIN}"
 
         # Ensure that we actually have a nodeset to sign.
-        [ ! -d ${proto}.${network}.${ETH_DNS_DISCV4_PARENT_DOMAIN} ] || [ ! -f ${proto}.${network}.${ETH_DNS_DISCV4_PARENT_DOMAIN}/nodes.json ] && { echo " | DNE, skipping"; continue; }
+        [ ! -d ${network}"/"$2.${network}.${QUAI_DNS_DISCV4_PARENT_DOMAIN} ] || [ ! -f ${network}"/"$2.${network}.${QUAI_DNS_DISCV4_PARENT_DOMAIN}/nodes.json ] && { echo " | DNE, skipping"; continue; }
 
         echo
-        cat "${ETH_DNS_DISCV4_KEYPASS_PATH}" | devp2p dns sign "${proto}.${network}.${ETH_DNS_DISCV4_PARENT_DOMAIN}" "${ETH_DNS_DISCV4_KEY_PATH}" && echo "OK"
+        cat "${QUAI_DNS_DISCV4_KEYPASS_PATH}" | ./quai-devp2p dns sign "${network}"/"$2.${network}.${QUAI_DNS_DISCV4_PARENT_DOMAIN}" "${QUAI_DNS_DISCV4_KEY_PATH}" && echo "OK"
 
-        git add "${proto}.${network}.${ETH_DNS_DISCV4_PARENT_DOMAIN}"
+        git add "${network}/$2.${network}.${QUAI_DNS_DISCV4_PARENT_DOMAIN}"
     done
 
-    ETH_DNS_DISCV4_KEY_PUBLICINFO="$(cat $ETH_DNS_DISCV4_KEYPASS_PATH | ethkey inspect $ETH_DNS_DISCV4_KEY_PATH | grep -E '(Addr|Pub)')"
-    git -c user.name="meows" -c user.email='b5c6@protonmail.com' commit --author "crawler <>" -m "ci update ($network) $GITHUB_RUN_ID:$GITHUB_RUN_NUMBER
-        
-Crawltime: $ETH_DNS_DISCV4_CRAWLTIME
+    QUAI_DNS_DISCV4_KEY_PUBLICINFO="$(cat $QUAI_DNS_DISCV4_KEYPASS_PATH | ./ethkey inspect $QUAI_DNS_DISCV4_KEY_PATH | grep -E '(Addr|Pub)')"
+    git -c user.name="alanorwick" -c user.email="alan.kev11@gmail.com" commit --author "crawler <>" -m "ci update ($network) $GITHUB_RUN_ID:$GITHUB_RUN_NUMBER"
 
-$ETH_DNS_DISCV4_KEY_PUBLICINFO"
-    
 done
+
+Crawltime: $QUAI_DNS_DISCV4_CRAWLTIME
+
+$QUAI_DNS_DISCV4_KEY_PUBLICINFO
+    

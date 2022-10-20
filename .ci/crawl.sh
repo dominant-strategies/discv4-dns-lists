@@ -1,12 +1,32 @@
 #!/bin/sh
 
-devp2p discv4 crawl -timeout "$ETH_DNS_DISCV4_CRAWLTIME" all.json
+declare -a arr=("30303 prime" "30304 cyprus" "30305 paxos" "30306 hyrda" "30307 cyprus1" "30308 cyprus2" "30309 cyprus3" "30310 paxos1" "30311 paxos2" "30312 paxos3" "30313 hydra1" "30314 hyrda2" "30315 hyrda3")
 
-git add all.json	
+mkdir -p all-nodes
+for net in "${arr[@]}"
+do
+    set -- $net
+    echo $1 $2
+    echo $QUAI_DNS_DISCV4_BOOTNODE:$1
+    ./quai-devp2p discv4 crawl --addr 0.0.0.0:$1 -timeout "$QUAI_DNS_DISCV4_CRAWLTIME" --bootnodes $QUAI_DNS_DISCV4_BOOTNODE:$1 all-nodes/all-$2.json & 
+    pids[${i}]=$!
+    echo pids
+done
 
-ETH_DNS_DISCV4_KEY_PUBLICINFO="$(cat $ETH_DNS_DISCV4_KEYPASS_PATH | ethkey inspect $ETH_DNS_DISCV4_KEY_PATH | grep -E '(Addr|Pub)')"
-git -c user.name="meows" -c user.email='b5c6@protonmail.com' commit --author 'crawler <>' -m "ci update (all.json) $GITHUB_RUN_ID:$GITHUB_RUN_NUMBER
+# wait for all pids
+for pid in ${pids[*]}; do
+    wait $pid
+done
+
+for net in "${arr[@]}"
+do
+    set -- $net
+    git add all-$2.json
+done
+
+QUAI_DNS_DISCV4_KEY_PUBLICINFO="$(cat $QUAI_DNS_DISCV4_KEYPASS_PATH | ./ethkey inspect $QUAI_DNS_DISCV4_KEY_PATH | grep -E '(Addr|Pub)')"
+git -c user.name="alanorwick" -c user.email='alan.kev11@gmail.com' commit --author 'crawler <>' -m "ci update (all.json) $GITHUB_RUN_ID:$GITHUB_RUN_NUMBER
         
-Crawltime: $ETH_DNS_DISCV4_CRAWLTIME
+Crawltime: $QUAI_DNS_DISCV4_CRAWLTIME
 
-$ETH_DNS_DISCV4_KEY_PUBLICINFO"
+$QUAI_DNS_DISCV4_KEY_PUBLICINFO"

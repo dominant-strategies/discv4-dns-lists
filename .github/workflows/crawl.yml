@@ -8,18 +8,19 @@ on:
 
 jobs:
   build:
-    if: github.repository == 'etclabscore/discv4-dns-lists'
+    if: github.repository == 'dominant-strategies/discv4-dns-lists'
     name: Discv4-DNS-Crawler
     runs-on: ubuntu-20.04
     env:
-      ETH_DNS_DISCV4_CRAWLTIME: 30m
-      ETH_DNS_DISCV4_PARENT_DOMAIN: blockd.info
-      ETH_DNS_DISCV4_KEY_PATH: ./secrets/dnskey.json
-      ETH_DNS_DISCV4_KEYPASS_PATH: ./secrets/dnskey_password.txt
+      QUAI_DNS_DISCV4_CRAWLTIME: 30m
+      QUAI_DNS_DISCV4_PARENT_DOMAIN: quai.global
+      QUAI_DNS_DISCV4_KEY_PATH: ./secrets/dnskey.json
+      QUAI_DNS_DISCV4_KEYPASS_PATH: ./secrets/dnskey_password.txt
+      QUAI_DNS_DISCV4_BOOTNODE: enode://84a1545d709e862e8ee45a87558e833b8fb1ba057a093fb7c974beb51e403b2c1d6f8a89404632804cf4ba1b47e3db9fcd629feb9fa90226fd2cf2b8ce83b0c9@104.198.48.112
       CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-      ETH_DNS_CLOUDFLARE_ZONEID: ${{ secrets.ETH_DNS_CLOUDFLARE_ZONEID }}
-      ETH_DNS_DISCV4_KEY: ${{ secrets.ETH_DNS_DISCV4_KEY }}
-      ETH_DNS_DISCV4_KEYPASS: ${{ secrets.ETH_DNS_DISCV4_KEYPASS }}
+      QUAI_DNS_CLOUDFLARE_ZONEID: ${{ secrets.QUAI_DNS_CLOUDFLARE_ZONEID }}
+      QUAI_DNS_DISCV4_KEY: ${{ secrets.QUAI_DNS_DISCV4_KEY }}
+      QUAI_DNS_DISCV4_KEYPASS: ${{ secrets.QUAI_DNS_DISCV4_KEYPASS }}
 
     steps:
     - name: Set up Go
@@ -36,12 +37,12 @@ jobs:
       uses: actions/checkout@v2
       with:
         ref: etccore
-        token: ${{ secrets.PAT_REPO_MEOWSBITS }}
+        token: ${{ secrets.PAT_REPO_USER }}
 
     - uses: actions/checkout@v2
       with:
         ref: etccore
-        token: ${{ secrets.PAT_REPO_MEOWSBITS }}
+        token: ${{ secrets.PAT_REPO_USER }}
     - name: Checkout submodules
       shell: bash
       run: |
@@ -50,7 +51,7 @@ jobs:
         auth_header="$(git config --local --get http.https://github.com/.extraheader)"
         git submodule sync --recursive
         git -c "http.extraheader=$auth_header" -c protocol.version=2 submodule update --init --force --depth=1
-        cd core-geth
+        cd core-quai
         git fetch
         git fetch --tags
         # checkout_ref="$(git for-each-ref --count=1 --sort=-taggerdate --format '%(tag)' refs/tags)"
@@ -60,21 +61,21 @@ jobs:
         make all
         echo "$(pwd)/build/bin" >> $GITHUB_PATH
         cd ..
-        git diff --quiet || { git add core-geth && git -c user.name='meows' -c user.email='b5c6@protonmail.com' commit --author='crawler <>' -m "ci update (core-geth:${checkout_ref}) $GITHUB_RUN_ID:$GITHUB_RUN_NUMBER"; }
+        git diff --quiet || { git add core-quai && git -c user.name='alanorwick' -c user.email='alan.kev11@gmail.com' commit --author='crawler <>' -m "ci update (core-quai:${checkout_ref}) $GITHUB_RUN_ID:$GITHUB_RUN_NUMBER"; }
 
     - name: Setup secrets
       run: |
         mkdir secrets
-        echo "$ETH_DNS_DISCV4_KEY" > "$ETH_DNS_DISCV4_KEY_PATH"
-        echo "$ETH_DNS_DISCV4_KEYPASS" > "$ETH_DNS_DISCV4_KEYPASS_PATH"
+        echo "$QUAI_DNS_DISCV4_KEY" > "$QUAI_DNS_DISCV4_KEY_PATH"
+        echo "$QUAI_DNS_DISCV4_KEYPASS" > "$QUAI_DNS_DISCV4_KEYPASS_PATH"
 
     - name: Check env and secrets
       run: |
         ./.ci/deps.sh
-        export ETH_DNS_DISCV4_KEY_PUBLICINFO="$(cat $ETH_DNS_DISCV4_KEYPASS_PATH | ethkey inspect $ETH_DNS_DISCV4_KEY_PATH | grep -E '(Addr|Pub)')"
-        echo "$ETH_DNS_DISCV4_KEY_PUBLICINFO"
+        export QUAI_DNS_DISCV4_KEY_PUBLICINFO="$(cat $QUAI_DNS_DISCV4_KEYPASS_PATH | ethkey inspect $QUAI_DNS_DISCV4_KEY_PATH | grep -E '(Addr|Pub)')"
+        echo "$QUAI_DNS_DISCV4_KEY_PUBLICINFO"
 
-    - name: Condense Classic (ETC) nodes list
+    - name: Condense Quai Nodes List
       run: |
         cat \
           all.classic.blockd.info/nodes.json \
@@ -97,11 +98,11 @@ jobs:
 
     - name: Push
       env:
-        GITHUB_PAT: ${{ secrets.PAT_REPO_MEOWSBITS }}
+        GITHUB_PAT: ${{ secrets.PAT_REPO_USER }}
       run: |
-        git config --local user.name 'meows'
-        git config --local user.email 'b5c6@protonmail.com'
-        git remote set-url origin https://meowsbits:${GITHUB_PAT}@github.com/${GITHUB_REPOSITORY}.git
+        git config --local user.name 'alanorwick'
+        git config --local user.email 'alan.kev11@gmail.com'
+        git remote set-url origin https://alanorwick:${GITHUB_PAT}@github.com/${GITHUB_REPOSITORY}.git
         git push origin etccore
     
     - uses: actions/checkout@v2
@@ -111,4 +112,4 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        filename: .github/issue-on-failure.md
+        filename: .github/issue-on-failure.md    

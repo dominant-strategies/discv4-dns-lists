@@ -26,3 +26,11 @@ automatically.
 
 [EIP-1459]: https://eips.ethereum.org/EIPS/eip-1459
 [eth-entry]: https://github.com/ethereum/devp2p/blob/master/enr-entries/eth.md
+
+
+# CI Secrets
+CLOUDFLARE_API_TOKEN
+ETH_DNS_CLOUDFLARE_ZONEID
+ETH_DNS_DISCV4_KEY: The full content of the signing key file, eg. cat key.json | pbcopy.
+ETH_DNS_DISCV4_KEYPASS: The key's password.
+PAT_REPO_USER

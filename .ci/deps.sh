@@ -3,16 +3,16 @@
 set -e
 
 # Check programs we depend on.
-command -v devp2p >/dev/null 2>&1 && echo "OK: devp2p command in PATH" || { echo "Please install devp2p"; exit 1; }
+command -v quai-devp2p >/dev/null 2>&1 && echo "OK: quai-devp2p command in PATH" || { echo "Please install quai-devp2p"; exit 1; }
 command -v ethkey >/dev/null 2>&1 && echo "OK: ethkey command in PATH" || { echo "Please install ethkey"; exit 1; }
 command -v jq >/dev/null 2>&1 && echo "OK: jq command in PATH" || { echo "Please install jq"; exit 1; }
 
 # Check that we have key and keypass file.
-if [ ! -f $ETH_DNS_DISCV4_KEY_PATH ] || [ ! -f $ETH_DNS_DISCV4_KEYPASS_PATH ]; then
+if [ ! -f $QUAI_DNS_DISCV4_KEY_PATH ] || [ ! -f $QUAI_DNS_DISCV4_KEYPASS_PATH ]; then
     echo "
-No key found at key file path or no password file found at ${ETH_DNS_DISCV4_KEYPASS_PATH}. 
-Use 'ethkey generate ${ETH_DNS_DISCV4_KEY_PATH}'
-Save the password in plaintext in ${ETH_DNS_DISCV4_KEYPASS_PATH}
+No key found at key file path or no password file found at ${QUAI_DNS_DISCV4_KEYPASS_PATH}. 
+Use 'ethkey generate ${QUAI_DNS_DISCV4_KEY_PATH}'
+Save the password in plaintext in ${QUAI_DNS_DISCV4_KEYPASS_PATH}
 "
     exit 1
 else
@@ -30,10 +30,10 @@ fi
 # I'm not sure why I couldn't get devp2p to work without using the --zoneid flag; kept getting 403 bad perms.
 # Using the flag seems to fix it, and this var gets set as the value for that flag.
 # It's associated with the specific domain name that Cloudflare is managing and that we want to deploy to.
-if [ -z $ETH_DNS_CLOUDFLARE_ZONEID ]; then
-    echo "Missing ETH_DNS_CLOUDFLARE_ZONEID env var"
+if [ -z $QUAI_DNS_CLOUDFLARE_ZONEID ]; then
+    echo "Missing QUAI_DNS_CLOUDFLARE_ZONEID env var"
     exit 1
 else
-    echo "OK: environment variable ETH_DNS_CLOUDFLARE_ZONEID is not empty."
+    echo "OK: environment variable QUAI_DNS_CLOUDFLARE_ZONEID is not empty."
 fi
 
