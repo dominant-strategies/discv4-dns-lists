@@ -41,7 +41,7 @@ jobs:
     - uses: actions/checkout@v3
       with:
         ssh-key: ${{ secrets.PAT_REPO_USER }}
-    - name: Checkout submodules
+    - name: Checkout go-quai submodule
       shell: bash
       run: |
         # If your submodules are configured to use SSH instead of HTTPS please uncomment the following line
@@ -54,13 +54,59 @@ jobs:
         git fetch --tags
         # checkout_ref="$(git for-each-ref --count=1 --sort=-taggerdate --format '%(tag)' refs/tags)"
         # git checkout ${checkout_ref}
-        checkout_ref="$(git for-each-ref --count=1 --sort=-committerdate --format '%(objectname)' refs/heads/master)"
+        checkout_ref="$(git for-each-ref --count=1 --sort=-committerdate --format '%(objectname)' refs/heads/main)"
         git checkout ${checkout_ref}
         touch network.env
         make go-quai
         echo "$(pwd)/build/bin" >> $GITHUB_PATH
         cd ..
         git diff --quiet || { git add go-quai && git -c user.name='alanorwick' -c user.email='alan.kev11@gmail.com' commit --author='crawler <>' -m "ci update (go-quai:${checkout_ref}) $GITHUB_RUN_ID:$GITHUB_RUN_NUMBER"; }
+
+    - uses: actions/checkout@v3
+      with:
+        ssh-key: ${{ secrets.PAT_REPO_USER }}
+    - name: Checkout quai-devp2p submodule
+      shell: bash
+      run: |
+        # If your submodules are configured to use SSH instead of HTTPS please uncomment the following line
+        # git config --global url."https://github.com/".insteadOf "git@github.com:"
+        auth_header="$(git config --local --get http.https://github.com/.extraheader)"
+        git submodule sync --recursive
+        git -c "http.extraheader=$auth_header" -c protocol.version=2 submodule update --init --force --depth=1
+        cd quai-devp2p
+        git fetch
+        git fetch --tags
+        # checkout_ref="$(git for-each-ref --count=1 --sort=-taggerdate --format '%(tag)' refs/tags)"
+        # git checkout ${checkout_ref}
+        checkout_ref="$(git for-each-ref --count=1 --sort=-committerdate --format '%(objectname)' refs/heads/main)"
+        git checkout ${checkout_ref}
+        go build .
+        echo "$(pwd)" >> $GITHUB_PATH
+        cd ..
+        git diff --quiet || { git add go-quai && git -c user.name='alanorwick' -c user.email='alan.kev11@gmail.com' commit --author='crawler <>' -m "ci update (quai-devp2p:${checkout_ref}) $GITHUB_RUN_ID:$GITHUB_RUN_NUMBER"; }
+
+    - uses: actions/checkout@v3
+      with:
+        ssh-key: ${{ secrets.PAT_REPO_USER }}
+    - name: Checkout quaikey-util submodule
+      shell: bash
+      run: |
+        # If your submodules are configured to use SSH instead of HTTPS please uncomment the following line
+        # git config --global url."https://github.com/".insteadOf "git@github.com:"
+        auth_header="$(git config --local --get http.https://github.com/.extraheader)"
+        git submodule sync --recursive
+        git -c "http.extraheader=$auth_header" -c protocol.version=2 submodule update --init --force --depth=1
+        cd  quaikey-util
+        git fetch
+        git fetch --tags
+        # checkout_ref="$(git for-each-ref --count=1 --sort=-taggerdate --format '%(tag)' refs/tags)"
+        # git checkout ${checkout_ref}
+        checkout_ref="$(git for-each-ref --count=1 --sort=-committerdate --format '%(objectname)' refs/heads/main)"
+        git checkout ${checkout_ref}
+        go build .
+        echo "$(pwd)" >> $GITHUB_PATH
+        cd ..
+        git diff --quiet || { git add go-quai && git -c user.name='alanorwick' -c user.email='alan.kev11@gmail.com' commit --author='crawler <>' -m "ci update (quaikey-util:${checkout_ref}) $GITHUB_RUN_ID:$GITHUB_RUN_NUMBER"; }
 
     - name: Setup secrets
       run: |
@@ -71,7 +117,7 @@ jobs:
     - name: Check env and secrets
       run: |
         ./.ci/deps.sh
-        export QUAI_DNS_DISCV4_KEY_PUBLICINFO="$(cat $QUAI_DNS_DISCV4_KEYPASS_PATH | ethkey inspect $QUAI_DNS_DISCV4_KEY_PATH | grep -E '(Addr|Pub)')"
+        export QUAI_DNS_DISCV4_KEY_PUBLICINFO="$(cat $QUAI_DNS_DISCV4_KEYPASS_PATH | quaikey-util inspect $QUAI_DNS_DISCV4_KEY_PATH | grep -E '(Addr|Pub)')"
         echo "$QUAI_DNS_DISCV4_KEY_PUBLICINFO"
 
     - name: Condense Quai Nodes List

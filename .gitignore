@@ -43,11 +43,12 @@ profile.cov
 network.env
 nodelogs
 
-quai-devp2p
-ethkey
+quaikey-util
 mynode.*
 keypass.txt
 
 .env
 
 dnskey.json
+
+ethkey

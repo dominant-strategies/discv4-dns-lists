@@ -4,3 +4,12 @@
 [submodule "go-quai"]
 	path = go-quai
 	url = https://github.com/dominant-strategies/go-quai
+[submodule ".github/workflows/quai-devp2p"]
+	path = .github/workflows/quai-devp2p
+	url = https://github.com/dominant-strategies/quai-devp2p
+[submodule "quai-devp2p"]
+	path = quai-devp2p
+	url = https://github.com/dominant-strategies/quai-devp2p
+[submodule "quaikey-util"]
+	path = quaikey-util
+	url = https://github.com/dominant-strategies/quaikey-util

@@ -26,7 +26,7 @@ for chain in "${chains[@]}"; do
         git add "${network}/$2.${network}.${QUAI_DNS_DISCV4_PARENT_DOMAIN}"
     done
 
-    QUAI_DNS_DISCV4_KEY_PUBLICINFO="$(cat $QUAI_DNS_DISCV4_KEYPASS_PATH | ./ethkey inspect $QUAI_DNS_DISCV4_KEY_PATH | grep -E '(Addr|Pub)')"
+    QUAI_DNS_DISCV4_KEY_PUBLICINFO="$(cat $QUAI_DNS_DISCV4_KEYPASS_PATH | ./quaikey-util inspect $QUAI_DNS_DISCV4_KEY_PATH | grep -E '(Addr|Pub)')"
     git -c user.name="alanorwick" -c user.email="alan.kev11@gmail.com" commit --author "crawler <>" -m "ci update ($network) $GITHUB_RUN_ID:$GITHUB_RUN_NUMBER"
 
 done

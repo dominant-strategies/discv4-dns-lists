@@ -4,14 +4,14 @@ set -e
 
 # Check programs we depend on.
 command -v quai-devp2p >/dev/null 2>&1 && echo "OK: quai-devp2p command in PATH" || { echo "Please install quai-devp2p"; exit 1; }
-command -v ethkey >/dev/null 2>&1 && echo "OK: ethkey command in PATH" || { echo "Please install ethkey"; exit 1; }
+command -v quaikey-util >/dev/null 2>&1 && echo "OK: quaikey-util command in PATH" || { echo "Please install quaikey-util"; exit 1; }
 command -v jq >/dev/null 2>&1 && echo "OK: jq command in PATH" || { echo "Please install jq"; exit 1; }
 
 # Check that we have key and keypass file.
 if [ ! -f $QUAI_DNS_DISCV4_KEY_PATH ] || [ ! -f $QUAI_DNS_DISCV4_KEYPASS_PATH ]; then
     echo "
 No key found at key file path or no password file found at ${QUAI_DNS_DISCV4_KEYPASS_PATH}. 
-Use 'ethkey generate ${QUAI_DNS_DISCV4_KEY_PATH}'
+Use 'quaikey-util generate ${QUAI_DNS_DISCV4_KEY_PATH}'
 Save the password in plaintext in ${QUAI_DNS_DISCV4_KEYPASS_PATH}
 "
     exit 1
