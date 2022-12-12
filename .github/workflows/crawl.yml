@@ -56,6 +56,7 @@ jobs:
         # git checkout ${checkout_ref}
         checkout_ref="$(git for-each-ref --count=1 --sort=-committerdate --format '%(objectname)' refs/heads/master)"
         git checkout ${checkout_ref}
+        touch network.env
         make go-quai
         echo "$(pwd)/build/bin" >> $GITHUB_PATH
         cd ..
