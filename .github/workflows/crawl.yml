@@ -56,7 +56,7 @@ jobs:
         # git checkout ${checkout_ref}
         checkout_ref="$(git for-each-ref --count=1 --sort=-committerdate --format '%(objectname)' refs/heads/master)"
         git checkout ${checkout_ref}
-        make all
+        make go-quai
         echo "$(pwd)/build/bin" >> $GITHUB_PATH
         cd ..
         git diff --quiet || { git add go-quai && git -c user.name='alanorwick' -c user.email='alan.kev11@gmail.com' commit --author='crawler <>' -m "ci update (go-quai:${checkout_ref}) $GITHUB_RUN_ID:$GITHUB_RUN_NUMBER"; }
