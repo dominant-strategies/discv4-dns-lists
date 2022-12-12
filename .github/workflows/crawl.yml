@@ -36,12 +36,12 @@ jobs:
     - name: Check out code
       uses: actions/checkout@v2
       with:
-        ref: etccore
+        ref: dominant-strategies
         token: ${{ secrets.PAT_REPO_USER }}
 
     - uses: actions/checkout@v2
       with:
-        ref: etccore
+        ref: dominant-strategies
         token: ${{ secrets.PAT_REPO_USER }}
     - name: Checkout submodules
       shell: bash
