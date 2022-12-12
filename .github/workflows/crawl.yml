@@ -78,9 +78,8 @@ jobs:
     - name: Condense Quai Nodes List
       run: |
         cat \
-          all.classic.blockd.info/nodes.json \
-          all.kotti.blockd.info/nodes.json \
-          all.mordor.blockd.info/nodes.json \
+          all.mainnet.quainodes.io/nodes.json \
+          all.ropsten.quainodes.io/nodes.json \
           | jq -s add \
           > all.json
 
@@ -103,13 +102,4 @@ jobs:
         git config --local user.name 'alanorwick'
         git config --local user.email 'alan.kev11@gmail.com'
         git remote set-url origin https://alanorwick:${GITHUB_PAT}@github.com/${GITHUB_REPOSITORY}.git
-        git push origin etccore
-    
-    - uses: actions/checkout@v2
-    - name: HandleIfFailure
-      if: failure()
-      uses: JasonEtco/create-an-issue@v2
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        filename: .github/issue-on-failure.md    
+        git push origin dominant-strategies
