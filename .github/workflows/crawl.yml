@@ -36,12 +36,10 @@ jobs:
     - name: Check out code
       uses: actions/checkout@v2
       with:
-        ref: main
         token: ${{ secrets.PAT_REPO_USER }}
 
     - uses: actions/checkout@v2
       with:
-        ref: main
         token: ${{ secrets.PAT_REPO_USER }}
     - name: Checkout submodules
       shell: bash
