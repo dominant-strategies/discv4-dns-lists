@@ -1,3 +1,6 @@
 [submodule "core-quai"]
 	path = core-quai
 	url = https://github.com/etclabscore/core-quai.git
+[submodule "go-quai"]
+	path = go-quai
+	url = https://github.com/dominant-strategies/go-quai

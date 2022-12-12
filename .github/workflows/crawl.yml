@@ -49,7 +49,7 @@ jobs:
         auth_header="$(git config --local --get http.https://github.com/.extraheader)"
         git submodule sync --recursive
         git -c "http.extraheader=$auth_header" -c protocol.version=2 submodule update --init --force --depth=1
-        cd core-quai
+        cd go-quai
         git fetch
         git fetch --tags
         # checkout_ref="$(git for-each-ref --count=1 --sort=-taggerdate --format '%(tag)' refs/tags)"
@@ -59,7 +59,7 @@ jobs:
         make all
         echo "$(pwd)/build/bin" >> $GITHUB_PATH
         cd ..
-        git diff --quiet || { git add core-quai && git -c user.name='alanorwick' -c user.email='alan.kev11@gmail.com' commit --author='crawler <>' -m "ci update (core-quai:${checkout_ref}) $GITHUB_RUN_ID:$GITHUB_RUN_NUMBER"; }
+        git diff --quiet || { git add go-quai && git -c user.name='alanorwick' -c user.email='alan.kev11@gmail.com' commit --author='crawler <>' -m "ci update (go-quai:${checkout_ref}) $GITHUB_RUN_ID:$GITHUB_RUN_NUMBER"; }
 
     - name: Setup secrets
       run: |
