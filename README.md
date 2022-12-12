@@ -30,7 +30,7 @@ automatically.
 
 # CI Secrets
 CLOUDFLARE_API_TOKEN
-ETH_DNS_CLOUDFLARE_ZONEID
-ETH_DNS_DISCV4_KEY: The full content of the signing key file, eg. cat key.json | pbcopy.
-ETH_DNS_DISCV4_KEYPASS: The key's password.
+QUAI_DNS_CLOUDFLARE_ZONEID
+QUAI_DNS_DISCV4_KEY: The full content of the signing key file, eg. cat key.json | pbcopy.
+QUAI_DNS_DISCV4_KEYPASS: The key's password.
 PAT_REPO_USER

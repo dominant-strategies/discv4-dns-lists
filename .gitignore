@@ -49,3 +49,5 @@ mynode.*
 keypass.txt
 
 .env
+
+dnskey.json
