@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-20.04
     env:
       QUAI_DNS_DISCV4_CRAWLTIME: 30m
-      QUAI_DNS_DISCV4_PARENT_DOMAIN: quai.global
+      QUAI_DNS_DISCV4_PARENT_DOMAIN: quainodes.io
       QUAI_DNS_DISCV4_KEY_PATH: ./secrets/dnskey.json
       QUAI_DNS_DISCV4_KEYPASS_PATH: ./secrets/dnskey_password.txt
       QUAI_DNS_DISCV4_BOOTNODE: enode://84a1545d709e862e8ee45a87558e833b8fb1ba057a093fb7c974beb51e403b2c1d6f8a89404632804cf4ba1b47e3db9fcd629feb9fa90226fd2cf2b8ce83b0c9@104.198.48.112
@@ -36,12 +36,12 @@ jobs:
     - name: Check out code
       uses: actions/checkout@v2
       with:
-        ref: dominant-strategies
+        ref: main
         token: ${{ secrets.PAT_REPO_USER }}
 
     - uses: actions/checkout@v2
       with:
-        ref: dominant-strategies
+        ref: main
         token: ${{ secrets.PAT_REPO_USER }}
     - name: Checkout submodules
       shell: bash
