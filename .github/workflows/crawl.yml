@@ -73,7 +73,7 @@ jobs:
         auth_header="$(git config --local --get http.https://github.com/.extraheader)"
         git submodule sync --recursive
         git -c "http.extraheader=$auth_header" -c protocol.version=2 submodule update --init --force --depth=1
-        cd ./github/workflows/deps/quai-devp2p
+        cd deps/quai-devp2p
         git fetch
         git fetch --tags
         # checkout_ref="$(git for-each-ref --count=1 --sort=-taggerdate --format '%(tag)' refs/tags)"
@@ -83,7 +83,7 @@ jobs:
         go build .
         echo "$(pwd)" >> $GITHUB_PATH
         cd ..
-        git diff --quiet || { git add go-quai && git -c user.name='alanorwick' -c user.email='alan.kev11@gmail.com' commit --author='crawler <>' -m "ci update (quai-devp2p:${checkout_ref}) $GITHUB_RUN_ID:$GITHUB_RUN_NUMBER"; }
+        git diff --quiet || { git add deps/quai-devp2p && git -c user.name='alanorwick' -c user.email='alan.kev11@gmail.com' commit --author='crawler <>' -m "ci update (quai-devp2p:${checkout_ref}) $GITHUB_RUN_ID:$GITHUB_RUN_NUMBER"; }
 
     - uses: actions/checkout@v3
       with:
@@ -96,7 +96,7 @@ jobs:
         auth_header="$(git config --local --get http.https://github.com/.extraheader)"
         git submodule sync --recursive
         git -c "http.extraheader=$auth_header" -c protocol.version=2 submodule update --init --force --depth=1
-        cd  ./github/workflows/deps/quaikey-util
+        cd  deps/quaikey-util
         git fetch
         git fetch --tags
         # checkout_ref="$(git for-each-ref --count=1 --sort=-taggerdate --format '%(tag)' refs/tags)"
@@ -106,7 +106,7 @@ jobs:
         CGO_ENABLED=0 go build .
         echo "$(pwd)" >> $GITHUB_PATH
         cd ..
-        git diff --quiet || { git add go-quai && git -c user.name='alanorwick' -c user.email='alan.kev11@gmail.com' commit --author='crawler <>' -m "ci update (quaikey-util:${checkout_ref}) $GITHUB_RUN_ID:$GITHUB_RUN_NUMBER"; }
+        git diff --quiet || { git add deps/quaikey-util && git -c user.name='alanorwick' -c user.email='alan.kev11@gmail.com' commit --author='crawler <>' -m "ci update (quaikey-util:${checkout_ref}) $GITHUB_RUN_ID:$GITHUB_RUN_NUMBER"; }
 
     - name: Setup secrets
       run: |
