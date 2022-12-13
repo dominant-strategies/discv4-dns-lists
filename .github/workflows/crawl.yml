@@ -73,7 +73,7 @@ jobs:
         auth_header="$(git config --local --get http.https://github.com/.extraheader)"
         git submodule sync --recursive
         git -c "http.extraheader=$auth_header" -c protocol.version=2 submodule update --init --force --depth=1
-        cd quai-devp2p
+        cd ./github/workflows/deps/quai-devp2p
         git fetch
         git fetch --tags
         # checkout_ref="$(git for-each-ref --count=1 --sort=-taggerdate --format '%(tag)' refs/tags)"
@@ -96,7 +96,7 @@ jobs:
         auth_header="$(git config --local --get http.https://github.com/.extraheader)"
         git submodule sync --recursive
         git -c "http.extraheader=$auth_header" -c protocol.version=2 submodule update --init --force --depth=1
-        cd  quaikey-util
+        cd  ./github/workflows/deps/quaikey-util
         git fetch
         git fetch --tags
         # checkout_ref="$(git for-each-ref --count=1 --sort=-taggerdate --format '%(tag)' refs/tags)"
