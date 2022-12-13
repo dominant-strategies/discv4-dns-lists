@@ -52,3 +52,5 @@ keypass.txt
 dnskey.json
 
 ethkey
+
+build/bin*

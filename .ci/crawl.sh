@@ -24,7 +24,7 @@ do
     git add all-$2.json
 done
 
-QUAI_DNS_DISCV4_KEY_PUBLICINFO="$(cat $QUAI_DNS_DISCV4_KEYPASS_PATH | ./quaikey-util inspect $QUAI_DNS_DISCV4_KEY_PATH | grep -E '(Addr|Pub)')"
+QUAI_DNS_DISCV4_KEY_PUBLICINFO="$(cat $QUAI_DNS_DISCV4_KEYPASS_PATH | ./build/bin/quaikey-util inspect $QUAI_DNS_DISCV4_KEY_PATH | grep -E '(Addr|Pub)')"
 git -c user.name="alanorwick" -c user.email='alan.kev11@gmail.com' commit --author 'crawler <>' -m "ci update (all.json) $GITHUB_RUN_ID:$GITHUB_RUN_NUMBER
         
 Crawltime: $QUAI_DNS_DISCV4_CRAWLTIME

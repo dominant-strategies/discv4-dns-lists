@@ -16,6 +16,6 @@ for chain in "${chains[@]}"; do
         [[ ! -d ${chain}.${network}.${QUAI_DNS_DISCV4_PARENT_DOMAIN} ]] || [[ ! -f ${chain}.${network}.${QUAI_DNS_DISCV4_PARENT_DOMAIN}/nodes.json ]] && { echo " | DNE, skipping"; continue; }
 
         echo
-        devp2p dns to-cloudflare --zoneid "$QUAI_DNS_CLOUDFLARE_ZONEID" "${chain}.${network}.${QUAI_DNS_DISCV4_PARENT_DOMAIN}"
+        ./build/bin/quai-devp2p dns to-cloudflare --zoneid "$QUAI_DNS_CLOUDFLARE_ZONEID" "${chain}.${network}.${QUAI_DNS_DISCV4_PARENT_DOMAIN}"
     done
 done
