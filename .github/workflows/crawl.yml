@@ -41,30 +41,6 @@ jobs:
     - uses: actions/checkout@v3
       with:
         ssh-key: ${{ secrets.PAT_REPO_USER }}
-    - name: Checkout go-quai submodule
-      shell: bash
-      run: |
-        # If your submodules are configured to use SSH instead of HTTPS please uncomment the following line
-        # git config --global url."https://github.com/".insteadOf "git@github.com:"
-        auth_header="$(git config --local --get http.https://github.com/.extraheader)"
-        git submodule sync --recursive
-        git -c "http.extraheader=$auth_header" -c protocol.version=2 submodule update --init --force --depth=1
-        cd go-quai
-        git fetch
-        git fetch --tags
-        # checkout_ref="$(git for-each-ref --count=1 --sort=-taggerdate --format '%(tag)' refs/tags)"
-        # git checkout ${checkout_ref}
-        checkout_ref="$(git for-each-ref --count=1 --sort=-committerdate --format '%(objectname)' refs/heads/main)"
-        git checkout ${checkout_ref}
-        touch network.env
-        make go-quai
-        mv build/bin/go-quai $GITHUB_PATH
-        cd ..
-        git diff --quiet || { git add go-quai && git -c user.name='alanorwick' -c user.email='alan.kev11@gmail.com' commit --author='crawler <>' -m "ci update (go-quai:${checkout_ref}) $GITHUB_RUN_ID:$GITHUB_RUN_NUMBER"; }
-
-    - uses: actions/checkout@v3
-      with:
-        ssh-key: ${{ secrets.PAT_REPO_USER }}
     - name: Checkout quai-devp2p submodule
       shell: bash
       run: |
