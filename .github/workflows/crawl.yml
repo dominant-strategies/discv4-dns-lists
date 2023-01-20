@@ -43,16 +43,10 @@ jobs:
       run: git submodule sync --recursive
 
     - name: Run ls
-      run: ls
+      run: cd quaikey-util && ls
 
     - name: Build quaikey-util submodule
-      shell: bash
-      run: |
-        cd quaikey-util
-        ls
-        pwd
-        GO111MODULE=auto go build .
-        cd ..
+      run: GO111MODULE=auto go build .
 
     - name: Copy quaikey-util submodule
       shell: bash
