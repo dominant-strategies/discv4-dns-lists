@@ -94,4 +94,4 @@ jobs:
     - name: Push
       env:
         GITHUB_PAT: ${{ secrets.PAT_REPO_USER }}
-      run: git config --local user.name 'alanorwick' && git config --local user.email 'alan.kev11@gmail.com' && git remote set-url origin https://alanorwick:${GITHUB_PAT}@github.com/${GITHUB_REPOSITORY}.git && git push origin dominant-strategies
+      run: git config --local user.name 'alanorwick' && git config --local user.email 'alan.kev11@gmail.com' && git remote set-url origin https://${GITHUB_PAT}@github.com/${GITHUB_REPOSITORY}.git && git push origin dominant-strategies
