@@ -58,8 +58,7 @@ jobs:
         git checkout ${checkout_ref}
         touch network.env
         make go-quai
-        mkdir $GITHUB_WORKSPACE/build/bin
-        echo "$(pwd)/build/bin" >> $GITHUB_WORKSPACE/build/bin
+        echo "$(pwd)/build/bin" >> $GITHUB_PATH
         cd ..
         git diff --quiet || { git add go-quai && git -c user.name='alanorwick' -c user.email='alan.kev11@gmail.com' commit --author='crawler <>' -m "ci update (go-quai:${checkout_ref}) $GITHUB_RUN_ID:$GITHUB_RUN_NUMBER"; }
 
@@ -82,7 +81,7 @@ jobs:
         checkout_ref="$(git for-each-ref --count=1 --sort=-committerdate --format '%(objectname)' refs/heads/main)"
         git checkout ${checkout_ref}
         go build .
-        echo "$(pwd)" >> $GITHUB_WORKSPACE/build/bin
+        echo "$(pwd)" >> $GITHUB_PATH
         cd ..
         git diff --quiet || { git add quai-devp2p && git -c user.name='alanorwick' -c user.email='alan.kev11@gmail.com' commit --author='crawler <>' -m "ci update (quai-devp2p:${checkout_ref}) $GITHUB_RUN_ID:$GITHUB_RUN_NUMBER"; }
 
@@ -105,7 +104,7 @@ jobs:
         checkout_ref="$(git for-each-ref --count=1 --sort=-committerdate --format '%(objectname)' refs/heads/main)"
         git checkout ${checkout_ref}
         CGO_ENABLED=0 go build .
-        echo "$(pwd)" >> $GITHUB_WORKSPACE/build/bin
+        echo "$(pwd)" >> $GITHUB_PATH
         cd ..
         git diff --quiet || { git add quaikey-util && git -c user.name='alanorwick' -c user.email='alan.kev11@gmail.com' commit --author='crawler <>' -m "ci update (quaikey-util:${checkout_ref}) $GITHUB_RUN_ID:$GITHUB_RUN_NUMBER"; }
 
@@ -124,8 +123,8 @@ jobs:
     - name: Condense Quai Nodes List
       run: |
         cat \
-          all.mainnet.quainodes.io/nodes.json \
-          all.ropsten.quainodes.io/nodes.json \
+          all.colosseum.quainodes.io/nodes.json \
+          all.garden.quainodes.io/nodes.json \
           | jq -s add \
           > all.json
 
