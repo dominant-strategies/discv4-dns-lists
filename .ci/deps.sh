@@ -3,8 +3,8 @@
 set -e
 
 # Check programs we depend on.
-command -v devp2p >/dev/null 2>&1 && echo "OK: quai-devp2p command in PATH" || { echo "Please install quai-devp2p"; exit 1; }
-command -v key-util >/dev/null 2>&1 && echo "OK: quaikey-util command in PATH" || { echo "Please install quaikey-util"; exit 1; }
+command -v ./devp2p >/dev/null 2>&1 && echo "OK: quai-devp2p command in PATH" || { echo "Please install quai-devp2p"; exit 1; }
+command -v ./key-util >/dev/null 2>&1 && echo "OK: quaikey-util command in PATH" || { echo "Please install quaikey-util"; exit 1; }
 command -v jq >/dev/null 2>&1 && echo "OK: jq command in PATH" || { echo "Please install jq"; exit 1; }
 
 # Check that we have key and keypass file.
