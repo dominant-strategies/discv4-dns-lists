@@ -57,7 +57,7 @@ jobs:
         # checkout_ref="$(git for-each-ref --count=1 --sort=-committerdate --format '%(objectname)' refs/heads/main)"
         git checkout main
         go build .
-        mv quai-devp2p $GITHUB_PATH
+        cp quai-devp2p $GITHUB_PATH
         cd ..
         git diff --quiet || { git add quai-devp2p && git -c user.name='alanorwick' -c user.email='alan.kev11@gmail.com' commit --author='crawler <>' -m "ci update (quai-devp2p:${checkout_ref}) $GITHUB_RUN_ID:$GITHUB_RUN_NUMBER"; }
 
@@ -81,7 +81,7 @@ jobs:
         # git checkout ${checkout_ref}
         git checkout main
         CGO_ENABLED=0 go build .
-        mv quaikey-util $GITHUB_PATH
+        cp quaikey-util $GITHUB_PATH
         cd ..
         git diff --quiet || { git add quaikey-util && git -c user.name='alanorwick' -c user.email='alan.kev11@gmail.com' commit --author='crawler <>' -m "ci update (quaikey-util:${checkout_ref}) $GITHUB_RUN_ID:$GITHUB_RUN_NUMBER"; }
 
