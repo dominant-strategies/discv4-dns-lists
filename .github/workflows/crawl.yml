@@ -49,7 +49,7 @@ jobs:
       run: cd quaikey-util && CGO_ENABLED=0 GO111MODULE=auto go build -v .
 
     - name: Checkout quaikey-util submodule
-      run: cp quaikey-util $GITHUB_PATH
+      run: cp quaikey-util/quaikey-util $GITHUB_PATH
 
     - name: Checkout quai-devp2p submodule
       shell: bash
