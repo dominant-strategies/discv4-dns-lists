@@ -54,8 +54,8 @@ jobs:
         git fetch --tags
         # checkout_ref="$(git for-each-ref --count=1 --sort=-taggerdate --format '%(tag)' refs/tags)"
         # git checkout ${checkout_ref}
-        checkout_ref="$(git for-each-ref --count=1 --sort=-committerdate --format '%(objectname)' refs/heads/main)"
-        git checkout ${checkout_ref}
+        # checkout_ref="$(git for-each-ref --count=1 --sort=-committerdate --format '%(objectname)' refs/heads/main)"
+        git checkout main
         go build .
         mv quai-devp2p $GITHUB_PATH
         cd ..
@@ -77,8 +77,9 @@ jobs:
         git fetch --tags
         # checkout_ref="$(git for-each-ref --count=1 --sort=-taggerdate --format '%(tag)' refs/tags)"
         # git checkout ${checkout_ref}
-        checkout_ref="$(git for-each-ref --count=1 --sort=-committerdate --format '%(objectname)' refs/heads/main)"
-        git checkout ${checkout_ref}
+        # checkout_ref="$(git for-each-ref --count=1 --sort=-committerdate --format '%(objectname)' refs/heads/main)"
+        # git checkout ${checkout_ref}
+        git checkout main
         CGO_ENABLED=0 go build .
         mv quaikey-util $GITHUB_PATH
         cd ..
