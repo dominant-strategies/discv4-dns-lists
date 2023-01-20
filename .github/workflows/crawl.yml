@@ -42,11 +42,8 @@ jobs:
       shell: bash
       run: git submodule sync --recursive
 
-    - name: Build quaikey-util submodule
-      shell: bash
-      run: |
-        cd quaikey-util
-        ls
+    - name: Run ls
+      run: ls
 
     - name: Build quaikey-util submodule
       shell: bash
