@@ -48,7 +48,7 @@ jobs:
       shell: bash
       run: |
         cd quaikey-util
-        GO111MODULE=auto go build .
+        CGO_ENABLED=0 GO111MODULE=auto go build .
         cp quaikey-util $GITHUB_PATH
         cd ..
 
@@ -56,7 +56,7 @@ jobs:
       shell: bash
       run: |
         cd quai-devp2p
-        GO111MODULE=auto go build .
+        CGO_ENABLED=0 GO111MODULE=auto go build .
         cp quai-devp2p $GITHUB_PATH
         cd ..
 
