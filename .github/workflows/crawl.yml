@@ -39,20 +39,16 @@ jobs:
         ssh-key: ${{ secrets.PAT_REPO_USER }}
 
     - name: Submodule sync
-      shell: bash
       run: git submodule sync --recursive
 
-    - name: Run ls
-      run: cd quaikey-util && ls
+    - name: Submodule import
+      run: git -c "http.extraheader=$auth_header" -c protocol.version=2 submodule update --init --force --depth=1
 
-    - name: Build quaikey-util submodule
-      run: GO111MODULE=auto go build .
-
-    - name: Copy quaikey-util submodule
+    - name: Checkout quaikey-util submodule
       shell: bash
       run: |
-        ls
-        pwd
+        cd quaikey-util
+        GO111MODULE=auto go build .
         cp quaikey-util $GITHUB_PATH
         cd ..
 
