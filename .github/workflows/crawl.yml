@@ -85,17 +85,17 @@ jobs:
 
     - name: Filter and sign
       run: |
-        ./.ci/filter_and_sign.sh classic kotti mordor
+        ./.ci/filter_and_sign.sh colosseum garden
 
     - name: Deploy to DNS
       run: |
-        ./.ci/deploy.sh classic kotti mordor
+        ./.ci/deploy.sh colosseum garden
 
-    - name: Push
-      env:
-        GITHUB_PAT: ${{ secrets.PAT_REPO_USER }}
-      run: |
-        git config --local user.name 'alanorwick'
-        git config --local user.email 'alan.kev11@gmail.com'
-        git remote set-url origin https://alanorwick:${GITHUB_PAT}@github.com/${GITHUB_REPOSITORY}.git
-        git push origin dominant-strategies
+    # - name: Push
+    #   env:
+    #     GITHUB_PAT: ${{ secrets.PAT_REPO_USER }}
+    #   run: |
+    #     git config --local user.name 'alanorwick'
+    #     git config --local user.email 'alan.kev11@gmail.com'
+    #     git remote set-url origin https://alanorwick:${GITHUB_PAT}@github.com/${GITHUB_REPOSITORY}.git
+    #     git push origin dominant-strategies
