@@ -50,12 +50,7 @@ jobs:
         git submodule sync --recursive
         git -c "http.extraheader=$auth_header" -c protocol.version=2 submodule update --init --force --depth=1
         cd quai-devp2p
-        git fetch
-        git fetch --tags
-        # checkout_ref="$(git for-each-ref --count=1 --sort=-taggerdate --format '%(tag)' refs/tags)"
-        # git checkout ${checkout_ref}
-        # checkout_ref="$(git for-each-ref --count=1 --sort=-committerdate --format '%(objectname)' refs/heads/main)"
-        git checkout main
+        git pull
         go build .
         cp quai-devp2p $GITHUB_PATH
         cd ..
@@ -72,14 +67,8 @@ jobs:
         auth_header="$(git config --local --get http.https://github.com/.extraheader)"
         git submodule sync --recursive
         git -c "http.extraheader=$auth_header" -c protocol.version=2 submodule update --init --force --depth=1
-        cd  quaikey-util
-        git fetch
-        git fetch --tags
-        # checkout_ref="$(git for-each-ref --count=1 --sort=-taggerdate --format '%(tag)' refs/tags)"
-        # git checkout ${checkout_ref}
-        # checkout_ref="$(git for-each-ref --count=1 --sort=-committerdate --format '%(objectname)' refs/heads/main)"
-        # git checkout ${checkout_ref}
-        git checkout main
+        cd quaikey-util
+        git pull
         CGO_ENABLED=0 go build .
         cp quaikey-util $GITHUB_PATH
         cd ..
