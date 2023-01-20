@@ -12,7 +12,7 @@ jobs:
     name: Discv4-DNS-Crawler
     runs-on: ubuntu-20.04
     env:
-      QUAI_DNS_DISCV4_CRAWLTIME: 30m
+      QUAI_DNS_DISCV4_CRAWLTIME: 1m
       QUAI_DNS_DISCV4_PARENT_DOMAIN: quainodes.io
       QUAI_DNS_DISCV4_KEY_PATH: ./secrets/dnskey.json
       QUAI_DNS_DISCV4_KEYPASS_PATH: ./secrets/dnskey_password.txt
