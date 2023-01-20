@@ -47,9 +47,8 @@ jobs:
         # If your submodules are configured to use SSH instead of HTTPS please uncomment the following line
         # git config --global url."https://github.com/".insteadOf "git@github.com:"
         git submodule sync --recursive
-        go mod init
         cd quaikey-util
-        CGO_ENABLED=0 GO111MODULE=on go build .
+        CGO_ENABLED=0 GO111MODULE=auto go build .
         cp quaikey-util $GITHUB_PATH
         cd ..
 
@@ -63,7 +62,7 @@ jobs:
         # git config --global url."https://github.com/".insteadOf "git@github.com:"
         git submodule sync --recursive
         cd quai-devp2p
-        CGO_ENABLED=0 GO111MODULE=on go build .
+        CGO_ENABLED=0 GO111MODULE=auto go build .
         cp quai-devp2p $GITHUB_PATH
         cd ..
 
