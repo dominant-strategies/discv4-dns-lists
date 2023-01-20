@@ -38,50 +38,38 @@ jobs:
       with:
         ssh-key: ${{ secrets.PAT_REPO_USER }}
 
-    - uses: actions/checkout@v3
-      with:
-        ssh-key: ${{ secrets.PAT_REPO_USER }}
     - name: Submodule sync
       shell: bash
       run: git submodule sync --recursive
 
-    - uses: actions/checkout@v3
-      with:
-        ssh-key: ${{ secrets.PAT_REPO_USER }}
     - name: Build quaikey-util submodule
       shell: bash
       run: |
-        # If your submodules are configured to use SSH instead of HTTPS please uncomment the following line
-        # git config --global url."https://github.com/".insteadOf "git@github.com:"
+        cd quaikey-util
+        ls
+
+    - name: Build quaikey-util submodule
+      shell: bash
+      run: |
         cd quaikey-util
         ls
         pwd
-        CGO_ENABLED=0 GO111MODULE=auto go build .
+        GO111MODULE=auto go build .
         cd ..
 
-    - uses: actions/checkout@v3
-      with:
-        ssh-key: ${{ secrets.PAT_REPO_USER }}
     - name: Copy quaikey-util submodule
       shell: bash
       run: |
-        # If your submodules are configured to use SSH instead of HTTPS please uncomment the following line
-        # git config --global url."https://github.com/".insteadOf "git@github.com:"
         ls
         pwd
         cp quaikey-util $GITHUB_PATH
         cd ..
 
-    - uses: actions/checkout@v3
-      with:
-        ssh-key: ${{ secrets.PAT_REPO_USER }}
     - name: Checkout quai-devp2p submodule
       shell: bash
       run: |
-        # If your submodules are configured to use SSH instead of HTTPS please uncomment the following line
-        # git config --global url."https://github.com/".insteadOf "git@github.com:"
         cd quai-devp2p
-        CGO_ENABLED=0 GO111MODULE=auto go build .
+        GO111MODULE=auto go build .
         cp quai-devp2p $GITHUB_PATH
         cd ..
 
