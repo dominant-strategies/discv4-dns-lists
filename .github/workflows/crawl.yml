@@ -48,6 +48,8 @@ jobs:
         # git config --global url."https://github.com/".insteadOf "git@github.com:"
         git submodule sync --recursive
         cd quaikey-util
+        ls
+        pwd
         CGO_ENABLED=0 GO111MODULE=auto go build .
         cp quaikey-util $GITHUB_PATH
         cd ..
