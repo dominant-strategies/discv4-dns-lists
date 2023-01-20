@@ -13,7 +13,7 @@ for chain in "${chains[@]}"; do
         echo "Sign: $network"
 
         mkdir -p "${network}/$2.${network}.${QUAI_DNS_DISCV4_PARENT_DOMAIN}"
-        ./quai-devp2p nodeset filter all-nodes/all-$2.json -quai-network ${network} > "${network}/$2.${network}.${QUAI_DNS_DISCV4_PARENT_DOMAIN}/nodes.json"
+        ./devp2p nodeset filter all-nodes/all-$2.json -quai-network ${network} > "${network}/$2.${network}.${QUAI_DNS_DISCV4_PARENT_DOMAIN}/nodes.json"
 
         echo -n "Sign: $2.${network}.${QUAI_DNS_DISCV4_PARENT_DOMAIN}"
 
@@ -21,12 +21,12 @@ for chain in "${chains[@]}"; do
         [ ! -d ${network}"/"$2.${network}.${QUAI_DNS_DISCV4_PARENT_DOMAIN} ] || [ ! -f ${network}"/"$2.${network}.${QUAI_DNS_DISCV4_PARENT_DOMAIN}/nodes.json ] && { echo " | DNE, skipping"; continue; }
 
         echo
-        cat "${QUAI_DNS_DISCV4_KEYPASS_PATH}" | ./quai-devp2p dns sign "${network}"/"$2.${network}.${QUAI_DNS_DISCV4_PARENT_DOMAIN}" "${QUAI_DNS_DISCV4_KEY_PATH}" && echo "OK"
+        cat "${QUAI_DNS_DISCV4_KEYPASS_PATH}" | ./devp2p dns sign "${network}"/"$2.${network}.${QUAI_DNS_DISCV4_PARENT_DOMAIN}" "${QUAI_DNS_DISCV4_KEY_PATH}" && echo "OK"
 
         git add "${network}/$2.${network}.${QUAI_DNS_DISCV4_PARENT_DOMAIN}"
     done
 
-    QUAI_DNS_DISCV4_KEY_PUBLICINFO="$(cat $QUAI_DNS_DISCV4_KEYPASS_PATH | ./quaikey-util inspect $QUAI_DNS_DISCV4_KEY_PATH | grep -E '(Addr|Pub)')"
+    QUAI_DNS_DISCV4_KEY_PUBLICINFO="$(cat $QUAI_DNS_DISCV4_KEYPASS_PATH | ./key-util inspect $QUAI_DNS_DISCV4_KEY_PATH | grep -E '(Addr|Pub)')"
     git -c user.name="alanorwick" -c user.email="alan.kev11@gmail.com" commit --author "crawler <>" -m "ci update ($network) $GITHUB_RUN_ID:$GITHUB_RUN_NUMBER"
 
 done

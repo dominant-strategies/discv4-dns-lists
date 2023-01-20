@@ -49,14 +49,14 @@ jobs:
       run: cd quaikey-util && CGO_ENABLED=0 GO111MODULE=auto go build -v .
 
     - name: Checkout quaikey-util submodule
-      run: cp quaikey-util/quaikey-util $GITHUB_WORKSPACE
+      run: mv quaikey-util/quaikey-util $GITHUB_WORKSPACE/key-util
 
     - name: Checkout quai-devp2p submodule
       shell: bash
       run: |
         cd quai-devp2p
         CGO_ENABLED=0 GO111MODULE=auto go build -v .
-        cp quai-devp2p $GITHUB_WORKSPACE
+        mv quai-devp2p $GITHUB_WORKSPACE/devp2p
         cd ..
 
     - name: Setup secrets
@@ -68,7 +68,7 @@ jobs:
     - name: Check env and secrets
       run: |
         ./.ci/deps.sh
-        export QUAI_DNS_DISCV4_KEY_PUBLICINFO="$(cat $QUAI_DNS_DISCV4_KEYPASS_PATH | quaikey-util inspect $QUAI_DNS_DISCV4_KEY_PATH | grep -E '(Addr|Pub)')"
+        export QUAI_DNS_DISCV4_KEY_PUBLICINFO="$(cat $QUAI_DNS_DISCV4_KEYPASS_PATH | key-util inspect $QUAI_DNS_DISCV4_KEY_PATH | grep -E '(Addr|Pub)')"
         echo "$QUAI_DNS_DISCV4_KEY_PUBLICINFO"
 
     - name: Condense Quai Nodes List
