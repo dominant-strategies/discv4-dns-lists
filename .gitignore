@@ -54,3 +54,6 @@ dnskey.json
 ethkey
 
 build/bin*
+
+devp2p
+key-util
