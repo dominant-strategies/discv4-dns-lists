@@ -45,11 +45,12 @@ jobs:
     - name: Submodule import
       run: git -c "http.extraheader=$auth_header" -c protocol.version=2 submodule update --init --force --depth=1
 
+    - name: Build quaikey-util
+      run: cd quaikey-util && CGO_ENABLED=0 GO111MODULE=auto go build .
+
     - name: Checkout quaikey-util submodule
       shell: bash
       run: |
-        cd quaikey-util
-        CGO_ENABLED=0 GO111MODULE=auto go build .
         cp quaikey-util $GITHUB_PATH
         cd ..
 
