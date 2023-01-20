@@ -31,7 +31,7 @@ for chain in "${chains[@]}"; do
 
 done
 
-Crawltime: $QUAI_DNS_DISCV4_CRAWLTIME
+echo "Crawltime: $QUAI_DNS_DISCV4_CRAWLTIME"
 
-$QUAI_DNS_DISCV4_KEY_PUBLICINFO
+echo $QUAI_DNS_DISCV4_KEY_PUBLICINFO
     
