@@ -21,8 +21,7 @@ done
 
 QUAI_DNS_DISCV4_KEY_PUBLICINFO="$(cat $QUAI_DNS_DISCV4_KEYPASS_PATH | ./key-util inspect $QUAI_DNS_DISCV4_KEY_PATH | grep -E '(Addr|Pub)')"
 git add .
-git -c user.name="alanorwick" -c user.email='alan.kev11@gmail.com' commit --author 'crawler <>' -m "ci update (all.json) $GITHUB_RUN_ID:$GITHUB_RUN_NUMBER
-        
-Crawltime: $QUAI_DNS_DISCV4_CRAWLTIME
+git -c user.name="alanorwick" -c user.email='alan.kev11@gmail.com' commit --author 'crawler <>' -m "ci update (all.json) $GITHUB_RUN_ID:$GITHUB_RUN_NUMBER"
 
-$QUAI_DNS_DISCV4_KEY_PUBLICINFO"
+echo "Crawltime: $QUAI_DNS_DISCV4_CRAWLTIME"
+echo "$QUAI_DNS_DISCV4_KEY_PUBLICINFO"
