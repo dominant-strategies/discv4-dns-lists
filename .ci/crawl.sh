@@ -8,7 +8,7 @@ do
     set -- $net
     echo $1 $2
     echo $QUAI_DNS_DISCV4_BOOTNODE:$1
-    ./devp2p discv4 crawl --addr 0.0.0.0:$1 --timeout "$QUAI_DNS_DISCV4_CRAWLTIME" --bootnodes $QUAI_DNS_DISCV4_BOOTNODE:$1 all-nodes/all-$2.json & 
+    ./devp2p discv4 crawl --addr 0.0.0.0:$1 -timeout "$QUAI_DNS_DISCV4_CRAWLTIME" --bootnodes $QUAI_DNS_DISCV4_BOOTNODE:$1 all-nodes/all-$2.json & 
     pids[${i}]=$!
     echo pids
 done
