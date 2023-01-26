@@ -1,12 +1,4 @@
 {
-    "17b22cd57ba641dc20754489a9a184bfd58770d5c54405e71cecf0b09398134c": {
-        "seq": 2,
-        "record": "enr:-Je4QNL-r3Qbahtu_XOhDZI0G22VxqPl2qLE8cC8F4R0XJsXaqk3DVlfPAuDfyn_mBHEQkilVfoXe9l1Skjx_BNWDsQCg2V0aMfGhEHzZi6AgmlkgnY0gmlwhCJTprKJc2VjcDI1NmsxoQMLB396hvqE0IxPnlOe5T9_OczIX96r4cNNt7sOGY4jBYN0Y3CCdmuDdWRwgnZr",
-        "score": 1,
-        "firstResponse": "2023-01-26T01:55:47Z",
-        "lastResponse": "2023-01-26T18:06:25Z",
-        "lastCheck": "2023-01-26T22:18:07Z"
-    },
     "3a6a8c475b342d3af8e5aac4aa413fd078b1cb2e989d67bbdcdfa37a61895522": {
         "seq": 2,
         "record": "enr:-Je4QCrcJtPoi9HxbBleBQjqZibrMYttkf7trRKNo3l2qMAFGF5ARU2xMEs3qJp2w9rEXqxVjQIxBXrgj-fEp8DvY4wCg2V0aMfGhEHzZi6AgmlkgnY0gmlwhCKtXNeJc2VjcDI1NmsxoQJnCouIPDBgyn8_xQZRwPDrHedRPRQEAcPxo8xFNIZf14N0Y3CCdmuDdWRwgnZr",
@@ -46,13 +38,5 @@
         "firstResponse": "2023-01-25T23:28:25Z",
         "lastResponse": "2023-01-26T18:06:40Z",
         "lastCheck": "2023-01-26T22:18:30Z"
-    },
-    "f8407215e6f97cd0da72b7b723a138d1c99a2b8af21d7649a0284b7975ea5e0f": {
-        "seq": 2,
-        "record": "enr:-Je4QKEOrPv8TzEpUB1ALD2CJeqI1ZzZ8IGsAiCpbpGTHWayCHp67nacHy_Q0uMuk6H-HV5aEMXf8gA8rtVfuwul6oYCg2V0aMfGhEHzZi6AgmlkgnY0gmlwhGjGMHCJc2VjcDI1NmsxoQOEoVRdcJ6GLo7kWodVjoM7j7G6BXoJP7fJdL61HkA7LIN0Y3CCdmuDdWRwgnZr",
-        "score": 1,
-        "firstResponse": "2023-01-25T23:06:20Z",
-        "lastResponse": "2023-01-26T18:06:25Z",
-        "lastCheck": "2023-01-26T22:18:08Z"
     }
 }
