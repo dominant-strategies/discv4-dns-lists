@@ -2,25 +2,25 @@
     "17b22cd57ba641dc20754489a9a184bfd58770d5c54405e71cecf0b09398134c": {
         "seq": 2,
         "record": "enr:-Je4QNL-r3Qbahtu_XOhDZI0G22VxqPl2qLE8cC8F4R0XJsXaqk3DVlfPAuDfyn_mBHEQkilVfoXe9l1Skjx_BNWDsQCg2V0aMfGhEHzZi6AgmlkgnY0gmlwhCJTprKJc2VjcDI1NmsxoQMLB396hvqE0IxPnlOe5T9_OczIX96r4cNNt7sOGY4jBYN0Y3CCdmuDdWRwgnZr",
-        "score": 1,
+        "score": 2,
         "firstResponse": "2023-01-26T01:55:47Z",
-        "lastResponse": "2023-01-26T01:55:47Z",
-        "lastCheck": "2023-01-26T01:55:47Z"
+        "lastResponse": "2023-01-26T02:26:25Z",
+        "lastCheck": "2023-01-26T02:26:25Z"
     },
     "d19b7422c3946e777c8dde666b3db4a9c6276d9ba3a410b88fcc9b06b0bf79ab": {
         "seq": 4,
         "record": "enr:-Je4QJJQRMn3N9nSQ0_EOIzHe9uXa2dmTBjuySemhIQCEgT0Wg-elwOM4XGRklIBgLSDCAQI_A3EjxkVzIYudYW9Ax0Eg2V0aMfGhEHzZi6AgmlkgnY0gmlwhCKuClCJc2VjcDI1NmsxoQNNcGuLOJ1iOlRgfoGgx6KSYDslO5BEr9XVRpBfGKk3YoN0Y3CCdmuDdWRwgnZr",
-        "score": 3,
+        "score": 4,
         "firstResponse": "2023-01-25T23:28:25Z",
-        "lastResponse": "2023-01-26T01:55:42Z",
-        "lastCheck": "2023-01-26T01:55:42Z"
+        "lastResponse": "2023-01-26T02:26:25Z",
+        "lastCheck": "2023-01-26T02:26:25Z"
     },
     "f8407215e6f97cd0da72b7b723a138d1c99a2b8af21d7649a0284b7975ea5e0f": {
-        "seq": 4,
-        "record": "enr:-Je4QBjanhMYDAPgDsux3fS-8dPx9e0JKhjGDiFAY7oDKFDjfnt0dHa7uFOOEpWJHtkDKxRSV76lzQaT6jL18kblbqEEg2V0aMfGhEHzZi6AgmlkgnY0gmlwhGjGMHCJc2VjcDI1NmsxoQOEoVRdcJ6GLo7kWodVjoM7j7G6BXoJP7fJdL61HkA7LIN0Y3CCdmuDdWRwgnZr",
-        "score": 4,
+        "seq": 2,
+        "record": "enr:-Je4QKEOrPv8TzEpUB1ALD2CJeqI1ZzZ8IGsAiCpbpGTHWayCHp67nacHy_Q0uMuk6H-HV5aEMXf8gA8rtVfuwul6oYCg2V0aMfGhEHzZi6AgmlkgnY0gmlwhGjGMHCJc2VjcDI1NmsxoQOEoVRdcJ6GLo7kWodVjoM7j7G6BXoJP7fJdL61HkA7LIN0Y3CCdmuDdWRwgnZr",
+        "score": 5,
         "firstResponse": "2023-01-25T23:06:20Z",
-        "lastResponse": "2023-01-26T01:55:42Z",
-        "lastCheck": "2023-01-26T01:55:42Z"
+        "lastResponse": "2023-01-26T02:26:25Z",
+        "lastCheck": "2023-01-26T02:26:25Z"
     }
 }
