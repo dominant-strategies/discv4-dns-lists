@@ -2,33 +2,33 @@
     "17b22cd57ba641dc20754489a9a184bfd58770d5c54405e71cecf0b09398134c": {
         "seq": 4,
         "record": "enr:-Je4QCpgzhfyF92ins1TM7lt0e6Kic8tV6ilIMIF3V6sWnUBHUJifTrwA6tpnMiSUUgq3BBKyjxClagW3nIgOCxjPCoEg2V0aMfGhEHzZi6AgmlkgnY0gmlwhCJTprKJc2VjcDI1NmsxoQMLB396hvqE0IxPnlOe5T9_OczIX96r4cNNt7sOGY4jBYN0Y3CCdmCDdWRwgnZg",
-        "score": 15,
+        "score": 16,
         "firstResponse": "2023-01-25T23:37:20Z",
-        "lastResponse": "2023-01-26T05:28:05Z",
-        "lastCheck": "2023-01-26T05:28:05Z"
+        "lastResponse": "2023-01-26T05:44:58Z",
+        "lastCheck": "2023-01-26T05:44:58Z"
     },
     "8bd4e8f7afd37ac967aa8d5ce2b5112a1f9a2a6056ae4b01dd9422915d118ef9": {
         "seq": 2,
         "record": "enr:-Je4QIhQQ9wWlM2r0_MMY55M8885-AbiHYlMTGjUrQVGkIlTffD28TAu6bqRa8zEFS8lrXWJeHcu_RPtwC1VY_NBWJYCg2V0aMfGhEHzZi6AgmlkgnY0gmlwhCPAfqWJc2VjcDI1NmsxoQJSUSGeGURS8RJYR88zDCjrvoNsBQu5BgNwD9wUVc005IN0Y3CCdmCDdWRwgnZg",
-        "score": 9,
+        "score": 10,
         "firstResponse": "2023-01-26T03:19:58Z",
-        "lastResponse": "2023-01-26T05:28:06Z",
-        "lastCheck": "2023-01-26T05:28:06Z"
+        "lastResponse": "2023-01-26T05:44:59Z",
+        "lastCheck": "2023-01-26T05:44:59Z"
     },
     "d19b7422c3946e777c8dde666b3db4a9c6276d9ba3a410b88fcc9b06b0bf79ab": {
         "seq": 2,
         "record": "enr:-Je4QI0zMgxk-9ehTR-b9uHKwYwp5ytyOop7lqdi3aZjmNTrWSSv1WXUr90GId4z0trptt6ZE3Cj45n_ufEpsVU-qv4Cg2V0aMfGhEHzZi6AgmlkgnY0gmlwhCKuClCJc2VjcDI1NmsxoQNNcGuLOJ1iOlRgfoGgx6KSYDslO5BEr9XVRpBfGKk3YoN0Y3CCdmCDdWRwgnZg",
-        "score": 15,
+        "score": 16,
         "firstResponse": "2023-01-25T23:37:23Z",
-        "lastResponse": "2023-01-26T05:28:06Z",
-        "lastCheck": "2023-01-26T05:28:06Z"
+        "lastResponse": "2023-01-26T05:44:59Z",
+        "lastCheck": "2023-01-26T05:44:59Z"
     },
     "f8407215e6f97cd0da72b7b723a138d1c99a2b8af21d7649a0284b7975ea5e0f": {
         "seq": 2,
         "record": "enr:-Je4QCbpbGtka2mTvYmYd7bBmj-pK1IrBOxvDUkhDzMJq-SrKUS9YRhqhGAayyDbmQsPmp7Lk-HHHZvmSJ_07IQUD2MCg2V0aMfGhEHzZi6AgmlkgnY0gmlwhGjGMHCJc2VjcDI1NmsxoQOEoVRdcJ6GLo7kWodVjoM7j7G6BXoJP7fJdL61HkA7LIN0Y3CCdmCDdWRwgnZg",
-        "score": 17,
+        "score": 18,
         "firstResponse": "2023-01-25T23:06:20Z",
-        "lastResponse": "2023-01-26T05:28:06Z",
-        "lastCheck": "2023-01-26T05:28:06Z"
+        "lastResponse": "2023-01-26T05:44:58Z",
+        "lastCheck": "2023-01-26T05:44:58Z"
     }
 }
