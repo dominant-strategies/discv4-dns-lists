@@ -66,18 +66,18 @@
     "8059d925c66535b9a6e68490c4d008aa6922dbc4d3c1dc78561d429ba363cd4b": {
         "seq": 2,
         "record": "enr:-Je4QHa5WYOG1UWPCzMUh7293nP_uAIgd-9dvKrg6kErUdKkSVL3bk4hJvCSK3WVsCuxA0qU17uLSDhG_CL_4cdCheQCg2V0aMfGhEHzZi6AgmlkgnY0gmlwhCPAfqWJc2VjcDI1NmsxoQKuOR_6KaxkVCZWq3iEkm66GOanYX-jiEL4LSNPbyhmW4N0Y3CCdmKDdWRwgnZi",
-        "score": 21,
+        "score": 22,
         "firstResponse": "2023-01-26T03:35:02Z",
-        "lastResponse": "2023-01-26T14:36:27Z",
-        "lastCheck": "2023-01-26T14:36:27Z"
+        "lastResponse": "2023-01-26T14:47:27Z",
+        "lastCheck": "2023-01-26T14:47:27Z"
     },
     "8e8fcb840db851027e26e48c0dc132cc859bd3b577831182bc3529fb9b9025bd": {
         "seq": 2,
         "record": "enr:-Je4QC9SA1H6cLvb-TiwNhA3OcuIz0ODKqFZsln4D-jEdFvBM0FS_hX3pzk-zOsV39Z4QFCLb21-Db_H4Ei1_MlLJOYCg2V0aMfGhEHzZi6AgmlkgnY0gmlwhCKqn3WJc2VjcDI1NmsxoQOeSZgQVCFjZChxUkkUuf3YaMsB7VOn2kbMZOAf8p2BRIN0Y3CCdmKDdWRwgnZi",
-        "score": 15,
+        "score": 16,
         "firstResponse": "2023-01-26T03:20:04Z",
-        "lastResponse": "2023-01-26T14:36:29Z",
-        "lastCheck": "2023-01-26T14:36:29Z"
+        "lastResponse": "2023-01-26T14:47:27Z",
+        "lastCheck": "2023-01-26T14:47:27Z"
     },
     "95e9c99d641113a2f2351b2617d40a4e8da24ef4a91a227540eca07ca063e2fd": {
         "seq": 2,
@@ -86,6 +86,14 @@
         "firstResponse": "2023-01-26T07:00:14Z",
         "lastResponse": "2023-01-26T14:36:30Z",
         "lastCheck": "2023-01-26T14:36:30Z"
+    },
+    "97835e3cf9d20bf301b6708049baf5bf43bbf97bca5c5173f61dccf7fa204f6f": {
+        "seq": 2,
+        "record": "enr:-Je4QPmUxTnxDOi2MZYNOlCwNIyHApjgOOkmycjwSkwl4jkvIA-_k0Bue4r4CTbQ-urSmdE71PlxIinzOT3csGqCZcwCg2V0aMfGhEHzZi6AgmlkgnY0gmlwhCKtXNeJc2VjcDI1NmsxoQIxI5RKE-IW_ck2rfhkmkEQqhbIRN9G6ozM71yy2cw4joN0Y3CCdmCDdWRwgnZg",
+        "score": 1,
+        "firstResponse": "2023-01-26T14:48:47Z",
+        "lastResponse": "2023-01-26T14:48:47Z",
+        "lastCheck": "2023-01-26T14:48:47Z"
     },
     "c1f309ce4e1900a78734dbf619274a0248156c1c23c40f9ef4218f2fd131c5db": {
         "seq": 2,
