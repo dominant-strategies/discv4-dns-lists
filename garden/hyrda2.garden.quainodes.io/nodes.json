@@ -1,34 +1,10 @@
 {
-    "86df2f7be4f573ba9780db26a3827d08f38a600c9585a8755252932a53f880f2": {
-        "seq": 2,
-        "record": "enr:-Je4QC4LIm-KQ8coo9rro2yNGGO_YfzaJTzYq0MAIw3delujQeqo3k6o5oNiFf-bvjkzG2Z8JYdN9i2jKsZfNCjCmY4Cg2V0aMfGhEHzZi6AgmlkgnY0gmlwhGjFEGuJc2VjcDI1NmsxoQOTyL5F3ywA1u-2pG_zcGeA-zk6toCebNVKrxJixURv54N0Y3CCdmqDdWRwgnZq",
-        "score": 1,
-        "firstResponse": "2023-01-25T23:28:27Z",
-        "lastResponse": "2023-01-25T23:28:27Z",
-        "lastCheck": "2023-01-25T23:28:27Z"
-    },
-    "9a571947dd13a2a4eb91060c8b30a04058af142bc0275142bb730e874deaec1f": {
-        "seq": 2,
-        "record": "enr:-Je4QGBZhqSezxEhuOBO_k9mrsib_eAU6gQLahHCAsOLx_c0NEiVnkT6kZEYdTOVzde2uwm3cAmBO-miS08EZgmMPd0Cg2V0aMfGhEHzZi6AgmlkgnY0gmlwhCKqn3WJc2VjcDI1NmsxoQN2iVCiVWGzIp-Llplfprxk6ZvX4NSziqC8rTfzGVNT44N0Y3CCdmqDdWRwgnZq",
-        "score": 1,
-        "firstResponse": "2023-01-25T23:28:24Z",
-        "lastResponse": "2023-01-25T23:28:24Z",
-        "lastCheck": "2023-01-25T23:28:24Z"
-    },
-    "a0f50df8a5b5f6c593625a4f20fb4feeeb38ff249b05355feb7b7cc205532dd3": {
-        "seq": 2,
-        "record": "enr:-Je4QGGCj6OJ-eF8Xw5I3h1nQG5q0Lf7m9nfLB13DXW39eycRZzyN8s1YbbmDwnTIuYO6K2a1xExYdHODUzOq2KqI80Cg2V0aMfGhEHzZi6AgmlkgnY0gmlwhCPAfqWJc2VjcDI1NmsxoQJuRr_EAW9hVB-Ojq32aTyuUPK_rIi4aiVdYrO8iD1JWoN0Y3CCdmqDdWRwgnZq",
-        "score": 1,
-        "firstResponse": "2023-01-25T23:28:28Z",
-        "lastResponse": "2023-01-25T23:28:28Z",
-        "lastCheck": "2023-01-25T23:28:28Z"
-    },
     "f8407215e6f97cd0da72b7b723a138d1c99a2b8af21d7649a0284b7975ea5e0f": {
-        "seq": 2,
-        "record": "enr:-Je4QC64j1snvME_YZxLObGs91UOROYi_SgVhDhwL99DbcYyd6liE0iIpT4dztGzz3i5nC3cprK8SraVMYQDufcQhSECg2V0aMfGhEHzZi6AgmlkgnY0gmlwhGjGMHCJc2VjcDI1NmsxoQOEoVRdcJ6GLo7kWodVjoM7j7G6BXoJP7fJdL61HkA7LIN0Y3CCdmqDdWRwgnZq",
-        "score": 3,
+        "seq": 4,
+        "record": "enr:-Je4QF6vs_ObtES0veerWwr26F2kDOytVMDYKwZTgCianyFHUXVuYsGSSqk7qBDE0p2EBaTPsCveKrZcNvd0TzlrjLgEg2V0aMfGhEHzZi6AgmlkgnY0gmlwhGjGMHCJc2VjcDI1NmsxoQOEoVRdcJ6GLo7kWodVjoM7j7G6BXoJP7fJdL61HkA7LIN0Y3CCdmqDdWRwgnZq",
+        "score": 4,
         "firstResponse": "2023-01-25T23:06:20Z",
-        "lastResponse": "2023-01-25T23:40:34Z",
-        "lastCheck": "2023-01-25T23:40:34Z"
+        "lastResponse": "2023-01-26T00:42:36Z",
+        "lastCheck": "2023-01-26T00:42:36Z"
     }
 }
