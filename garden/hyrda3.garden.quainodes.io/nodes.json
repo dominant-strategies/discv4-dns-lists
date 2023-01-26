@@ -63,13 +63,21 @@
         "lastResponse": "2023-01-26T08:31:28Z",
         "lastCheck": "2023-01-26T08:31:28Z"
     },
+    "6c24532fa361347d86fc87bcbb6e7abd8095836b51a43573040970710438453d": {
+        "seq": 2,
+        "record": "enr:-Je4QDaU_vS2jDHU11f_farB9kYS3TqaCF4ttPlRxW6Bcw0wVzrx8CshtpXdqUNcJjsnHz3z5DWK3zJjoNZHzj4A2F8Cg2V0aMfGhEHzZi6AgmlkgnY0gmlwhCKtXNeJc2VjcDI1NmsxoQITZCoEmg2kSNohy5ylhJAGWznbzsJgK_MAuvvyqBJxGoN0Y3CCdmODdWRwgnZj",
+        "score": 1,
+        "firstResponse": "2023-01-26T08:45:20Z",
+        "lastResponse": "2023-01-26T08:45:20Z",
+        "lastCheck": "2023-01-26T08:45:20Z"
+    },
     "6ccbce6eb68680d0c1e7e1b7f40d4f54d24ac125a182a10d15dc2f653f5a02d1": {
         "seq": 2,
         "record": "enr:-Je4QKN5oNR7_q6Hpf8nOCE-hfqcAcEdYu204hrWwB_KRIouOt-Jr2Rd6Ge9X7hupUHeaXV0eK7O7t701bu-Y8tOi-ICg2V0aMfGhEHzZi6AgmlkgnY0gmlwhCJG-_OJc2VjcDI1NmsxoQMHEMWbMKYBUb9lAZviEvLuoL-kcz_s8jiLc2-iRXQAm4N0Y3CCdmuDdWRwgnZr",
-        "score": 22,
+        "score": 23,
         "firstResponse": "2023-01-26T02:57:35Z",
-        "lastResponse": "2023-01-26T08:31:29Z",
-        "lastCheck": "2023-01-26T08:31:29Z"
+        "lastResponse": "2023-01-26T08:43:25Z",
+        "lastCheck": "2023-01-26T08:43:25Z"
     },
     "d19b7422c3946e777c8dde666b3db4a9c6276d9ba3a410b88fcc9b06b0bf79ab": {
         "seq": 2,
