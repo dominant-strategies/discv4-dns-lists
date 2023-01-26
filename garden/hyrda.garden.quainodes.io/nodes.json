@@ -2,10 +2,10 @@
     "17b22cd57ba641dc20754489a9a184bfd58770d5c54405e71cecf0b09398134c": {
         "seq": 2,
         "record": "enr:-Je4QJ9eln--MLnVcIsfviwgU0phWkqipUtawCOW2YwmMsL6RYyQ3VoQBhYyxTmvW1VgMOuJPpYkiTtReW4j8nOtAJACg2V0aMfGhEHzZi6AgmlkgnY0gmlwhCJTprKJc2VjcDI1NmsxoQMLB396hvqE0IxPnlOe5T9_OczIX96r4cNNt7sOGY4jBYN0Y3CCdmKDdWRwgnZi",
-        "score": 22,
+        "score": 23,
         "firstResponse": "2023-01-26T02:57:37Z",
-        "lastResponse": "2023-01-26T08:31:23Z",
-        "lastCheck": "2023-01-26T08:31:23Z"
+        "lastResponse": "2023-01-26T08:43:10Z",
+        "lastCheck": "2023-01-26T08:43:10Z"
     },
     "17b531fb27d508615e42c6637ad6a2c40f589c8d30f7831e88ab0f7ba6b4428a": {
         "seq": 2,
@@ -82,9 +82,9 @@
     "f8407215e6f97cd0da72b7b723a138d1c99a2b8af21d7649a0284b7975ea5e0f": {
         "seq": 2,
         "record": "enr:-Je4QPF40IkA8QaOOT7g3kUpec_xlaXBDgPrpz9IudHq3B1FdDPIXCael0dYAf09xbk1Sfm_W9V2dmPxLF-1nB8eE24Cg2V0aMfGhEHzZi6AgmlkgnY0gmlwhGjGMHCJc2VjcDI1NmsxoQOEoVRdcJ6GLo7kWodVjoM7j7G6BXoJP7fJdL61HkA7LIN0Y3CCdmKDdWRwgnZi",
-        "score": 27,
+        "score": 28,
         "firstResponse": "2023-01-25T23:06:20Z",
-        "lastResponse": "2023-01-26T08:31:24Z",
-        "lastCheck": "2023-01-26T08:31:24Z"
+        "lastResponse": "2023-01-26T08:45:30Z",
+        "lastCheck": "2023-01-26T08:45:30Z"
     }
 }
