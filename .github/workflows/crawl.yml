@@ -1,7 +1,7 @@
 name: Discv4 Crawl and DNS Update
 on:
   schedule:
-    - cron: '*/10 * * * *'
+    - cron: '0 */3 * * *'
       
     # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -16,7 +16,7 @@ jobs:
       QUAI_DNS_DISCV4_PARENT_DOMAIN: quainodes.io
       QUAI_DNS_DISCV4_KEY_PATH: ./secrets/dnskey.json
       QUAI_DNS_DISCV4_KEYPASS_PATH: ./secrets/dnskey_password.txt
-      QUAI_DNS_DISCV4_BOOTNODE: enode://84a1545d709e862e8ee45a87558e833b8fb1ba057a093fb7c974beb51e403b2c1d6f8a89404632804cf4ba1b47e3db9fcd629feb9fa90226fd2cf2b8ce83b0c9@104.198.48.112
+      QUAI_DNS_DISCV4_BOOTNODE: enode://aa76ab25bd9657efc8371103649ad9fc099388f1b303b18ab9b5fbdd43c8bae1e039357eb6a5a3aa86679f58ed0231c88bd207393448a7226d63fdc4651698cb@35.202.3.128
       CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
       QUAI_DNS_CLOUDFLARE_ZONEID: ${{ secrets.QUAI_DNS_CLOUDFLARE_ZONEID }}
       QUAI_DNS_DISCV4_KEY: ${{ secrets.QUAI_DNS_DISCV4_KEY }}
@@ -32,7 +32,7 @@ jobs:
     - name: Set up Go
       uses: actions/setup-go@v3
       with:
-        go-version: 1.18
+        go-version: 1.20
       id: go
 
     - run: go version
@@ -75,7 +75,6 @@ jobs:
       run: |
         cat \
           all.colosseum.quainodes.io/nodes.json \
-          all.garden.quainodes.io/nodes.json \
           | jq -s add \
           > all.json
 
@@ -85,11 +84,11 @@ jobs:
 
     - name: Filter and sign
       run: |
-        ./.ci/filter_and_sign.sh colosseum garden
+        ./.ci/filter_and_sign.sh colosseum
 
     - name: Deploy to DNS
       run: |
-        ./.ci/deploy.sh colosseum garden
+        ./.ci/deploy.sh colosseum
 
     - uses: stefanzweifel/git-auto-commit-action@v4
       with:
