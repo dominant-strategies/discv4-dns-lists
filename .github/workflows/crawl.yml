@@ -75,7 +75,6 @@ jobs:
       run: |
         cat \
           all.colosseum.quainodes.io/nodes.json \
-          all.garden.quainodes.io/nodes.json \
           | jq -s add \
           > all.json
 
@@ -85,11 +84,11 @@ jobs:
 
     - name: Filter and sign
       run: |
-        ./.ci/filter_and_sign.sh colosseum garden
+        ./.ci/filter_and_sign.sh colosseum
 
     - name: Deploy to DNS
       run: |
-        ./.ci/deploy.sh colosseum garden
+        ./.ci/deploy.sh colosseum
 
     - uses: stefanzweifel/git-auto-commit-action@v4
       with:
