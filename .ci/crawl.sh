@@ -1,14 +1,21 @@
 #!/bin/bash
 
-arr=("30303 prime" "30304 cyprus" "30305 paxos" "30306 hyrda" "30307 cyprus1" "30308 cyprus2" "30309 cyprus3" "30310 paxos1" "30311 paxos2" "30312 paxos3" "30313 hydra1" "30314 hyrda2" "30315 hyrda3")
+arr=("30303 prime" "30304 cyprus" "30305 paxos" "30306 hydra" "30307 cyprus1" "30308 cyprus2" "30309 cyprus3" "30310 paxos1" "30311 paxos2" "30312 paxos3" "30313 hydra1" "30314 hydra2" "30315 hydra3")
 
 mkdir -p all-nodes
 for net in "${arr[@]}"
 do
     set -- $net
-    echo $1 $2
-    echo $QUAI_DNS_DISCV4_BOOTNODE:$1
-    ./devp2p discv4 crawl --addr 0.0.0.0:$1 -timeout "$QUAI_DNS_DISCV4_CRAWLTIME" --bootnodes $QUAI_DNS_DISCV4_BOOTNODE:$1 all-nodes/all-$2.json & 
+    port=$1
+    node_name=$2
+    # Convert node_name to uppercase and replace spaces/hyphens with underscores
+    env_var="QUAI_DNS_DISCV4_BOOTNODE_$(echo $node_name | tr '[:lower:]-' '[:upper:]_')"
+    bootnode=${!env_var} # Use indirect expansion to get the value of the dynamically generated env var
+    
+    echo $port $node_name
+    echo $bootnode:$port
+    
+    ./devp2p discv4 crawl --addr 0.0.0.0:$port -timeout "$QUAI_DNS_DISCV4_CRAWLTIME" --bootnodes $bootnode all-nodes/all-$node_name.json & 
     pids[${i}]=$!
     echo pids
 done
@@ -17,7 +24,6 @@ done
 for pid in ${pids[*]}; do
     wait $pid
 done
-
 
 QUAI_DNS_DISCV4_KEY_PUBLICINFO="$(cat $QUAI_DNS_DISCV4_KEYPASS_PATH | ./key-util inspect $QUAI_DNS_DISCV4_KEY_PATH | grep -E '(Addr|Pub)')"
 git add .
