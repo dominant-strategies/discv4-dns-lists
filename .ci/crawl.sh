@@ -27,7 +27,6 @@ do
     node_name=$2
     
     jq 'to_entries | sort_by(-.value.score) | from_entries' all-nodes/all-$node_name.json > tmp_file.tmp && mv tmp_file.tmp all-nodes/all-$node_name.json
-    break
 done
 
 
