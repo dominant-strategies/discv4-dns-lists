@@ -20,6 +20,18 @@ do
     echo pids
 done
 
+for net in "${arr[@]}"
+do
+    set -- $net
+    port=$1
+    node_name=$2
+    
+    jq 'to_entries | sort_by(-.value.score) | from_entries' all-nodes/all-$node_name.json > tmp_file.tmp && mv tmp_file.tmp all-nodes/all-$node_name.json
+    break
+done
+
+
+
 # wait for all pids
 for pid in ${pids[*]}; do
     wait $pid
